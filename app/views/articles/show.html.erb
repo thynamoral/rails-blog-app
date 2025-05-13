@@ -1,8 +1,34 @@
 
 <h1>Title: <%= @article.title %> </h1>
 <p> <%= @article.body %> </p>
+
 <%= link_to "Delete", article_path(@article), data: {
   turbo_method: :delete,
   turbo_confirm: "Are you sure?"
 } %>
 <%= link_to "Edit", edit_article_path %>
+
+<hr>
+
+<h3>All comments</h3>
+<% @article.comments.each do |comment| %>
+  <div>
+    <p><strong>Commenter:</strong> <%= comment.commenter %></p>
+    <p><strong>Body:</strong> <%= comment.body %></p>
+  </div>
+<% end %>
+
+<hr>
+
+<h3>Add comment</h3>
+<%= form_with model: [@article, @article.comments.build] do |form| %>
+  <div>
+    <%= form.label :commenter %>
+    <%= form.text_field :commenter %>
+  </div> <br>
+  <div>
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div> <br>
+  <%= form.submit "Add comment" %>
+<% end %>
