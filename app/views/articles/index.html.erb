@@ -1,0 +1,9 @@
+<h1>Articles</h1>
+<div class="articles">
+  <% @articles.each do |article| %>
+    <div class="article" style="width: fit-content; border: 1px solid black; padding: 5px;" >
+      <h2> <%= article.title %> </h2>
+      <p> <%= article.body %> </p>
+    </div>
+  <% end %>
+</div>
