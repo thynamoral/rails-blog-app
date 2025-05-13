@@ -1,12 +1,20 @@
-<h1>All Articles</h1>
+<h1>
+  <span>All Articles</span
+  <span style="padding-left: 10px;">
+    (<%= Article.public_count %>)
+  </span>
+  </h1>
+
 <%= link_to "New article", new_article_path %>
 
 <div class="articles">
   <% @articles.each do |article| %>
-    <div class="article" style="border-bottom: 1px solid black; padding: 5px;" >
-      <h2> <%= article.title %> </h2>
-      <p> <%= article.body %> </p>
-      <%= link_to "View this article", article %>
-    </div>
+    <% unless article.archived? %>
+      <div class="article" style="border-bottom: 1px solid black; padding: 5px;" >
+        <h2> <%= article.title %> </h2>
+        <p> <%= article.body %> </p>
+        <%= link_to "View this article", article %>
+      </div>
+    <% end %>
   <% end %>
 </div>

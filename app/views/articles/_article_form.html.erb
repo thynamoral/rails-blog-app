@@ -1,17 +1,21 @@
 <%= form_with model: @article do |form| %>
   <div>
-    <%= form.label :title %>
+    <%= form.label :title %> <br>
     <%= form.text_field :title %>
     <% @article.errors.full_messages_for(:title).each do |message| %>
         <div style="color:red;" ><%= message %></div>
     <% end %>
-  </div>
+  </div> <br>
   <div>
-    <%= form.label :body %>
+    <%= form.label :body %> <br>
     <%= form.text_area :body %>
     <% @article.errors.full_messages_for(:body).each do |message| %>
         <div style="color:red;" ><%= message %></div>
     <% end %>
-  </div>
+  </div> <br>
+  <div>
+    <%= form.label :status %>
+    <%= form.select :status, Visible::VALIDATE_STATUSES, selected: article.status || "public" %>
+  </div> <br>
   <%= form.submit %>
 <% end %>
