@@ -14,9 +14,7 @@
   "files.associations": {
     "*.yaml.example": "yaml",
     "*.html.erb": "erb",
-    "*.html.erb.deface": "erb",
-    "Dockerfile*": "dockerfile",
-    "Gemfile*": "gemfile"
+    "*.html.erb.deface": "erb"
   },
 
   "search.exclude": {
